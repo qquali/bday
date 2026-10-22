@@ -2,3 +2,4 @@ assets/raw/
 node_modules/
 .DS_Store
 qr/
+*.md
