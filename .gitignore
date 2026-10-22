@@ -1,6 +1,4 @@
 assets/raw/
 node_modules/
 .DS_Store
-PROMPT.md
-UPDATE.md
 qr/
