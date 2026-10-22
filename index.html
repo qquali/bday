@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru" class="locked">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="noindex, nofollow">
+  <title>не открывай</title>
+  <meta name="description" content="ты нашла это не случайно">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="не открывай">
+  <meta property="og:description" content="ты нашла это не случайно">
+  <meta property="og:image" content="assets/web/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" href="assets/web/favicon.png">
+  <link rel="apple-touch-icon" href="assets/web/apple-touch-icon.png">
+
+  <link rel="preload" as="image" href="assets/web/door.jpg" type="image/jpeg" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/web/door_him.jpg" type="image/jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Caveat:wght@400..700&family=Old+Standard+TT:ital@0;1&family=PT+Mono&display=swap">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <!-- 1. Вход -->
+    <section class="scene door" id="door">
+      <div class="door__cam">
+        <img class="door__img" src="assets/web/door.jpg" alt="закрытая дверь в тёмном коридоре" fetchpriority="high">
+        <img class="door__him" src="assets/web/door_him.jpg" alt="" aria-hidden="true">
+      </div>
+      <p class="door__whisper" data-text="door.whisper"></p>
+      <p class="door__hint" data-text="door.hint"></p>
+      <button class="door__enter" type="button" data-text="door.enter"></button>
+    </section>
+
+    <!-- 2–4. Блокнот на полу коридора → подъём камеры → скример.
+         Одна длинная секция, внутри sticky-кадр; всё движение — по прогрессу скролла -->
+    <section class="scene diary" id="diary">
+      <div class="diary__view">
+        <div class="diary__cam" aria-hidden="true">
+          <img class="diary__corridor" data-src="assets/web/corridor.jpg" alt="">
+          <img class="diary__blur" data-src="assets/web/corridor_blur.jpg" alt="">
+          <!-- на долю секунды в темноте при мигании лампы -->
+          <img class="diary__lurker" data-src="assets/web/lurker.webp" alt="">
+        </div>
+        <div class="diary__dim" aria-hidden="true"></div>
+        <div class="diary__dark" aria-hidden="true"></div>
+        <div class="nb" role="document" aria-label="дневник">
+          <div class="nb__stack" aria-hidden="true"></div>
+          <!-- картон под последней страницей: что остаётся, когда он её вырывает -->
+          <div class="nb__under" aria-hidden="true"></div>
+          <div class="nb__pages"></div>
+          <div class="nb__stub" aria-hidden="true"></div>
+          <div class="nb__binding" aria-hidden="true"></div>
+        </div>
+        <!-- его рука, которая вырывает последнюю страницу -->
+        <img class="nb-arm" data-src="assets/web/arm_a.webp" alt="" aria-hidden="true">
+        <!-- плашка камеры в коридоре -->
+        <div class="rec" aria-hidden="true"><span class="rec__dot"></span><span class="rec__label"></span><span class="rec__time"></span></div>
+      </div>
+    </section>
+
+    <!-- 6. Улики -->
+    <section class="scene evidence" id="evidence">
+      <h2 class="evidence__heading" data-text="evidence.heading"></h2>
+      <p class="evidence__hint" data-text="evidence.hint"></p>
+      <div class="evidence__list"></div>
+    </section>
+
+    <!-- 7. Рука -->
+    <section class="scene arm" id="arm">
+      <div class="arm__sticky">
+        <div class="arm__light" aria-hidden="true"></div>
+        <p class="arm__warning"></p>
+        <div class="arm__idle"><img class="arm__img" src="assets/web/arm_a.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></div>
+        <div class="arm__blink" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- 8. Финал -->
+    <section class="scene finale" id="finale">
+      <img class="finale__note" src="assets/web/note.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <!-- строки кладутся на линейку листа из main.js -->
+      <div class="finale__text"></div>
+      <div class="finale__dim" aria-hidden="true"></div>
+    </section>
+  </main>
+
+  <!-- 4. Скример: один раз за визит -->
+  <div class="scare" aria-hidden="true">
+    <div class="scare__frame">
+      <img class="scare__img" data-src="assets/web/creature_2.jpg" alt="">
+      <div class="scare__slices"></div>
+      <!-- луч фонарика: всё вокруг лица тонет в темноте -->
+      <div class="scare__light"></div>
+    </div>
+    <div class="scare__blocks"></div>
+  </div>
+
+  <!-- Оверлеи поверх всего -->
+  <div class="blocks" aria-hidden="true"></div>
+  <div class="dust" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="fade" aria-hidden="true"></div>
+  <div class="flash" aria-hidden="true">
+    <img class="flash__ghost" data-src="assets/web/creature_2.jpg" alt="">
+  </div>
+
+  <button class="sound-toggle" type="button" hidden></button>
+
+  <script src="content.js"></script>
+  <script src="drawings.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

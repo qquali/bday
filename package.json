@@ -1,0 +1,15 @@
+{
+  "name": "creepy-bday",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "optimize": "node scripts/optimize.mjs",
+    "qr": "node scripts/qr.mjs"
+  },
+  "devDependencies": {
+    "jsqr": "^1.4.0",
+    "playwright-core": "^1.48.2",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.33.5"
+  }
+}
