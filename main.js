@@ -1399,6 +1399,14 @@
     } else if (finaleStarted) sound.stopMusicBox();
   }, { threshold: 0.55 }).observe(finale);
 
+  // подпись внизу: кровь начинает стекать, когда её видно
+  const credit = $('.credit');
+  new IntersectionObserver(([e], io) => {
+    if (!e.isIntersecting) return;
+    credit.classList.add('is-bleeding');
+    io.disconnect();
+  }, { threshold: 0.4 }).observe(credit);
+
   // ======================================================================
   // Скролл-сцены
   // ======================================================================
