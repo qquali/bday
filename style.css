@@ -804,17 +804,24 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .credit__name {
   position: relative;
   display: block;
-  font: 60px/1.15 var(--f-letter);
-  letter-spacing: .02em;
-  /* выведено пальцем: сверху свежее и светлее, книзу кровь стекает и темнеет */
-  color: var(--blood);
-  background: linear-gradient(175deg, #d01a16 15%, #a50e0c 55%, #6e0606 92%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  width: 240px;
+  height: 96px;
   transform: rotate(-4deg);
-  /* рваный, неровный край мазка */
-  filter: url(#blood-edge) drop-shadow(0 0 4px rgba(170, 0, 0, .45));
+  filter: drop-shadow(0 0 4px rgba(170, 0, 0, .4));
+}
+/* штрих мазка: неровная толщина за счёт фильтра, концы рваные */
+.credit__strokes path {
+  fill: none;
+  stroke: #b3100d;
+  stroke-width: 4.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.credit.is-bleeding .credit__strokes path {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset .16s cubic-bezier(.5, 0, .9, .6) calc(var(--i) * .14s + .3s);
 }
 .credit__splat {
   position: absolute;
@@ -822,15 +829,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   width: calc(100% + 80px);
   height: calc(100% + 58px);
   opacity: .9;
-}
-.credit__under {
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  top: calc(100% - 16px);
-  width: calc(100% - 36px);
-  height: 44px;
-  transform: rotate(-4deg);
 }
 /* капли тянутся вниз, когда подпись попадает в кадр */
 .credit__drip {
@@ -844,6 +842,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 @media (prefers-reduced-motion: reduce) {
   .credit__drip { transform: scaleY(var(--l, 1)); }
+  .credit__strokes path { stroke-dashoffset: 0; }
 }
 
 /* ---------- 4. Скример ---------- */

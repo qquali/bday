@@ -113,17 +113,33 @@
           <circle cx="22" cy="92" r="1.3"/><circle cx="190" cy="122" r="2.8"/><circle cx="160" cy="16" r="1.6"/>
           <path d="M231 66l22 9-1 2.4-22-8.6Z"/><path d="M40 70l-18-6 .8-2.2 18 5.8Z"/>
         </svg>
-        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-          <filter id="blood-edge" x="-10%" y="-20%" width="120%" height="140%">
-            <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7"/>
-            <feDisplacementMap in="SourceGraphic" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+        <!-- АХИРА: печатные буквы, наспех выведенные кровью; штрихи прописываются по очереди -->
+        <svg class="credit__name" viewBox="0 0 240 96" role="img" aria-label="ахира">
+          <filter id="blood-edge" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="7"/>
+            <feDisplacementMap in="SourceGraphic" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
           </filter>
-        </svg>
-        <span class="credit__name">ахира</span>
-        <svg class="credit__under" viewBox="0 0 200 50" preserveAspectRatio="none" aria-hidden="true">
-          <path class="credit__drip" style="--d:1.4s;--l:1" d="M33 0c0 14-2.6 22-2.6 30a3.6 3.6 0 0 0 7.2 0c0-8-2.6-16-2.6-30Z"/>
-          <path class="credit__drip" style="--d:2.1s;--l:.6" d="M101 0c0 8-1.8 12-1.8 17a2.6 2.6 0 0 0 5.2 0c0-5-1.8-9-1.8-17Z"/>
-          <path class="credit__drip" style="--d:1.8s;--l:.85" d="M164 0c0 12-2.4 19-2.4 26a3.2 3.2 0 0 0 6.4 0c0-7-2.4-14-2.4-26Z"/>
+          <g class="credit__strokes" filter="url(#blood-edge)">
+            <path pathLength="1" style="--i:0" d="M6 74L13 49 17 33 24 11 27 14"/>
+            <path pathLength="1" style="--i:1" d="M23 13L29 33 34 52 41 75"/>
+            <path pathLength="1" style="--i:2" d="M11 51L22 48 37 46"/>
+            <path pathLength="1" style="--i:3" d="M51 13L60 29 69 47 82 72"/>
+            <path pathLength="1" style="--i:4" d="M84 10L74 30 63 50 50 77"/>
+            <path pathLength="1" style="--i:5" d="M97 14L98 41 96 74"/>
+            <path pathLength="1" style="--i:6" d="M95 73L106 51 117 32 127 12"/>
+            <path pathLength="1" style="--i:7" d="M127 10L126 44 129 76"/>
+            <path pathLength="1" style="--i:8" d="M143 77L142 46 145 12"/>
+            <path pathLength="1" style="--i:9" d="M141 15C158 6 175 15 170 29 165 41 152 42 143 41"/>
+            <path pathLength="1" style="--i:10" d="M181 76L190 46 196 27 203 7"/>
+            <path pathLength="1" style="--i:11" d="M202 8L208 31 214 53 222 74"/>
+            <path pathLength="1" style="--i:12" d="M186 54L201 49 217 47"/>
+          </g>
+          <!-- подтёки из нижних концов штрихов -->
+          <path class="credit__drip" style="--d:2.2s;--l:1" d="M5 72c0 10-1.6 14-1.6 18a2.4 2.4 0 0 0 4.8 0c0-4-1.4-8-1.4-18Z"/>
+          <path class="credit__drip" style="--d:2.8s;--l:.6" d="M81 70c0 8-1.3 12-1.3 15a2 2 0 0 0 4 0c0-3-1.2-7-1.2-15Z"/>
+          <path class="credit__drip" style="--d:2.5s;--l:1" d="M128 74c0 9-1.5 13-1.5 17a2.3 2.3 0 0 0 4.6 0c0-4-1.4-8-1.4-17Z"/>
+          <path class="credit__drip" style="--d:3.1s;--l:.75" d="M142 75c0 7-1.2 10-1.2 13a2 2 0 0 0 4 0c0-3-1.2-6-1.2-13Z"/>
+          <path class="credit__drip" style="--d:2.9s;--l:.9" d="M221 72c0 9-1.5 13-1.5 17a2.3 2.3 0 0 0 4.6 0c0-4-1.4-8-1.4-17Z"/>
         </svg>
       </div>
     </footer>
