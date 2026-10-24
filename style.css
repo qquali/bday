@@ -804,11 +804,17 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .credit__name {
   position: relative;
   display: block;
-  font: 58px/1.15 var(--f-letter);
+  font: 60px/1.15 var(--f-letter);
+  letter-spacing: .02em;
+  /* выведено пальцем: сверху свежее и светлее, книзу кровь стекает и темнеет */
   color: var(--blood);
+  background: linear-gradient(175deg, #d01a16 15%, #a50e0c 55%, #6e0606 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   transform: rotate(-4deg);
-  /* влажный блик сверху, тёмный подтёк снизу */
-  text-shadow: 0 -1px 0 rgba(255, 120, 110, .18), 0 2px 0 #3a0202, 0 0 14px rgba(140, 0, 0, .35);
+  /* рваный, неровный край мазка */
+  filter: url(#blood-edge) drop-shadow(0 0 4px rgba(170, 0, 0, .45));
 }
 .credit__splat {
   position: absolute;
